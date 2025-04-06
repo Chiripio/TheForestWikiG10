@@ -1,0 +1,490 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="{% static 'imagenes/Icono/the-forest.icon.png' %}" />
+  <title>Lugares-The forest Wiki</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="{% static 'css/lugares.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap"
+    rel="stylesheet">
+</head>
+
+<body id="fondo1">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">      
+    <a class="navbar-brand" href="menuprincipal_wiki.html" id="fuente">The Forest Wiki</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="menuprincipal_wiki.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="forowiki.html">Foro</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://www.google.com/maps/place/R%C3%ADo+Imperial+460,+Valle+Grande,+Lampa,+Regi%C3%B3n+Metropolitana">Dirección</a></li>
+        <li class="nav-item"><a class="nav-link" href="registrase_wiki.html">Registrarse</a></li>
+        <li class="nav-item"><a class="nav-link" href="inicio_sesion_wiki.html">Iniciar sesión</a></li>
+        <li class="nav-item"><a class="nav-link" href="micuentatf.html">Mi Cuenta</a></li>
+      </ul>
+      <form class="d-flex" id="separarsearch">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Buscar</button>
+      </form>
+    </div>
+  </nav>
+
+  <center>
+    <h1 id="titulo1">Pueblos</h1>
+  </center>
+
+  <section class="color2 letra">
+    <section class="cajacard">
+      <div class="w-33">
+        <div class="center">
+          <button class="btn btn-dark">Editar</button>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <div class="col">
+            <div class="card h-100" style="background-color: rgba(0, 0, 0, 0.541);">
+              <img src="{% static 'img_lugares_wiki/pueblotf_1.jpg' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Pueblo</h5>
+                <p class="card-text">Construidos por mutantes, son cabañas pequeñas con techo de paja y es una base para los mutantes. Frecuentemente es ocupado de 2 a 7 mutantes en el día y la noche. Se pueden encontrar 2 tipos de cabañas: triangulares y estilo casa larga.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card h-100" style="background-color: rgba(0, 0, 0, 0.541);">
+              <img src="{% static 'img_lugares_wiki/pueblocentraltf.jpg' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Pueblo Central</h5>
+                <p class="card-text">Ubicado en el centro del mapa con ligera desviación al sur. Una de las aldeas más peligrosas del juego dado a la alta cantidad de <a href="#" class="link-warning">Rutas de patrulla</a>. Objetos: bidón de gasolina x2, cuerda x2, laptop, efigies de caníbales. <a href="#" class="link-warning">Flora</a>: achicoria, mora, arándano, hongos. <a href="#" class="link-warning">Fauna</a>: conejos y lagartos.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card h-100" style="background-color: rgba(0, 0, 0, 0.541);">
+              <img src="{% static 'img_lugares_wiki/pueblodecabañasplaya_1.jpg' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Pueblo Cabañas De Playa</h5>
+                <p class="card-text">Construidos por caníbales, es una serie de cabañas repartidas a lo largo de la playa que es patrullado por <a href="#" class="link-warning">Enemigos</a>. Alta presencia de <a href="#" class="link-warning">Tiburones Muertos</a>, latas de combustible, maletas, laptop, refrescos, bocadillos, laca, bebida alcohólica. <a href="#" class="link-warning">Flora</a>: twinberry. <a href="#" class="link-warning">Fauna</a>: tiburones muertos y gaviotas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <div class="col">
+            <div class="card h-100" style="background-color: rgba(0, 0, 0, 0.541);">
+              <img src="{% static 'img_lugares_wiki/pueblojuntoallago_1.jpg' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Pueblo Junto al Lago</h5>
+                <p class="card-text">Ubicado al lado del gran lago, se puede encontrar cuerda x2, atuendo, pernos de ballesta, maletas, olla-pot, hoguera caníbal, jaulas de madera, efigies caníbales. <a href="#" class="link-warning">Flora</a>: baya de nieve, hierbas, montones de nieve, árboles de palo, plantas de hojas. <a href="#" class="link-warning">Fauna</a>: peces, lagartos, conejos, gansos.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col">
+            <div class="card h-100" style="background-color: rgba(0, 0, 0, 0.541);">
+              <img src="{% static 'img_lugares_wiki/pueblodelacascada_1.jpg' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Pueblo de la Cascada</h5>
+                <p class="card-text">Aldea usada por los mutantes como punto de intercambio para patrullas. Tiene gran cantidad de flora y fauna. <a href="#" class="link-warning">Flora</a>: Aloe vera, hongos. <a href="#" class="link-warning">Fauna</a>: conejos, lagartos, jabalíes, ciervos, ardillas.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card h-100" style="background-color: rgba(0, 0, 0, 0.541);">
+              <img src="{% static 'img_lugares_wiki/pueblodecocodrilos_1.jpg' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Aldea de Cabañas de Cocodrilos</h5>
+                <p class="card-text">Ubicada entre el río y la zona de nieve. Posiblemente abandonada por los caníbales debido a los cocodrilos. Puedes encontrar: pintura roja, lanza mejorada, cuerda, maletas. <a href="#" class="link-warning">Flora</a>: arándano, blackberry, twinberry, snowberry. <a href="#" class="link-warning">Fauna</a>: cocodrilos, lagartos, conejos.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <div class="col">
+            <div class="card h-100" style="background-color: rgba(0, 0, 0, 0.541);">
+              <img src="{% static 'img_lugares_wiki/puebloribereño_1.jpg' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Pueblo Ribereño</h5>
+                <p class="card-text">Es pequeño y carece de objetos. Hay tiendas de campaña de lona al otro lado del río y entradas a la Cueva 3. Elementos: atuendo. <a href="#" class="link-warning">Flora</a>: hierbas, arándano, twinberry, snowberry. <a href="#" class="link-warning">Fauna</a>: lagartos, conejos, ciervos, peces. Objetos: 2 efigies caníbales, cabañas de hierba.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100" style="background-color: rgba(0, 0, 0, 0.541);">
+              <img src="{% static 'img_lugares_wiki/pueblocostero_1.jpg' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Pueblo Costero</h5>
+                <p class="card-text">Ubicado junto al mar, contiene dos cabañas. Patrullado por caníbales, con pocos objetos de valor. Elementos: 2 cuerdas. <a href="#" class="link-warning">Flora</a>: twinberry, árboles, árboles de palo. <a href="#" class="link-warning">Fauna</a>: conejos, lagartos. Objetos: efigies caníbales, fuego inservible, cadáveres quemados, carpas naranjas.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100" style="background-color: rgba(0, 0, 0, 0.541);">
+              <img src="{% static 'img_lugares_wiki/puebloprincipal_1.jpg' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Pueblo Principal</h5>
+                <p class="card-text">La aldea más grande construida por los caníbales. Muy peligrosa, ideal para saqueo. Elementos: maletas, telas, combustible, placas de circuito, bengalas, dinamita, dibujo de Timmy, pintura roja. <a href="#" class="link-warning">Flora</a>: hierbas, hongos, árboles, arbustos. <a href="#" class="link-warning">Fauna</a>: conejos, lagartos, ciervos.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ubicaciones específicas -->
+      <br><br><br><br>
+      <center>
+        <h1 id="titulo1">Ubicaciones específicas</h1>
+      </center>
+      <br><br>
+
+      <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <div class="col">
+            <div class="card h-100" style="background-color: rgba(0, 0, 0, 0.541);">
+              <img src="{% static 'img_lugares_wiki/tumbadelaplaya_1.jpg' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Tumba junto a la playa</h5>
+                <p class="card-text">Ubicada en la bahía de yates. Puedes encontrar Cassette 5, fotos, cruz, maletas en las inmediaciones.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100" style="background-color: rgba(0, 0, 0, 0.541);">
+              <img src="{% static 'img_lugares_wiki/cabina_1.png' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Cabina</h5>
+                <p class="card-text">Frente del avión estrellado. Contiene una pistola de bengalas. <a href="#" class="link-warning">Fauna</a>: ciervos, conejos blancos, jabalíes.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100" style="background-color: rgba(0, 0, 0, 0.541);">
+              <img src="{% static 'img_lugares_wiki/lagodelosgansos_1.png' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Lago de los Gansos</h5>
+                <p class="card-text">Ubicado cerca de un acantilado, es base popular por su comida, protección natural y belleza.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <div class="col">
+            <div class="card h-100" style="background-color: rgba(0, 0, 0, 0.541);">
+              <img src="{% static 'img_lugares_wiki/helicoptero_1.png' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Helicóptero</h5>
+                <p class="card-text">Se encuentra en el fondo del sumidero. Dejó rasguños y marcas al estrellarse. Puedes encontrar: maleta y machete.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100" style="background-color: rgba(0, 0, 0, 0.541);">
+              <img src="{% static 'img_lugares_wiki/contenedores de envio_1.png' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Contenedores de envío</h5>
+                <p class="card-text">Ubicados en la playa. Contienen: cinta eléctrica, placas de circuito, bebidas alcohólicas, piedras, medicamentos, monedas y manifiesto de carga.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100" style="background-color: rgba(0, 0, 0, 0.541);">
+              <img src="{% static 'img_lugares_wiki/cuartodealijo_1.jpg' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Cuarto de alijo oculto</h5>
+                <p class="card-text">Sala secreta con múltiples entradas. Puedes encontrar: hacha moderna, cinta, dinamita, refrescos, medicamentos, pintura roja, traje de pincel. <a href="#" class="link-warning">Fauna</a>: pez, tortuga, tiburón. <a href="#" class="link-warning">Flora</a>: plantas marinas. Objetos: contenedores, 3 tiburones muertos, efigies.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <div class="col">
+            <div class="card h-100" style="background-color: rgba(0, 0, 0, 0.541);">
+              <img src="{% static 'img_lugares_wiki/labsahara_1.png' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Laboratorio Sahára</h5>
+                <p class="card-text">Área subterránea profunda propiedad de Sahara Therapeutics. Requiere pasar por la cueva HC. Contiene bebés mutantes, caníbales y el jefe final Megan.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100" style="background-color: rgba(0, 0, 0, 0.541);">
+              <img src="{% static 'img_lugares_wiki/obelisco_1.png' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Obelisco</h5>
+                <p class="card-text">3 tipos: de resurrección, de poder (derriba aviones), y de la muerte (teórico). Forman parte de la historia principal en el laboratorio.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100" style="background-color: rgba(0, 0, 0, 0.541);">
+              <img src="{% static 'img_lugares_wiki/puertadeboveda_1.jpg' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Puerta de la Bóveda</h5>
+                <p class="card-text">Se encuentra al final de la Cueva HC. Necesitas la tarjeta de seguridad del empleado para abrirla y acceder al Laboratorio Sahára.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+
+      <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <div class="col">
+            <div class="card h-100" style="background-color: rgba(0, 0, 0, 0.541);">
+              <img src="{% static 'img_lugares_wiki/sumidero_1.png' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Sumidero</h5>
+                <p class="card-text">Puedes llegar al fondo del sumidero a través de la Cueva 7 o saltando desde el acantilado al estanque. Se recomienda llevar tarjeta de acceso, hacha de escalada y rebreather. Desde las rocas puedes atacar a los enemigos con armas de distancia.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100" style="background-color: rgba(0, 0, 0, 0.541);">
+              <img src="{% static 'img_lugares_wiki/lagodenieve_1.jpg' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Lago de nieve</h5>
+                <p class="card-text">Gran lago ideal para construir con traje de abrigo. Cerca hay un caché con la parte 7 del arma. <a href="#" class="link-warning">Flora</a>: árboles, hongos. <a href="#" class="link-warning">Fauna</a>: ciervo, conejos blancos. Objetos: caché con arma, tumba antigua (versión pre 1.0).</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card h-100" style="background-color: rgba(0, 0, 0, 0.541);">
+              <img src="{% static 'img_lugares_wiki/elavion_1.png' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">El Avión</h5>
+                <p class="card-text">Lugar clave de la historia. Puedes encontrar: 3 bebidas alcohólicas, 4 bandejas de comida, 2 medicamentos, 4 refrescos, hacha del avión y el manifiesto de pasajeros.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <div class="col">
+            <div class="card h-100" style="background-color: rgba(0, 0, 0, 0.541);">
+              <img src="{% static 'img_lugares_wiki/campamentoestanque_1.jpg' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Campamento estanque</h5>
+                <p class="card-text">Pequeño campamento con 2 tiendas azules para guardar y dormir. <a href="#" class="link-warning">Flora</a>: hierbas, arbustos, árboles. <a href="#" class="link-warning">Fauna</a>: conejo, ardilla, ciervo, pez. Objetos: efigies, carpas azules, bolsas de dormir.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100" style="background-color: rgba(0, 0, 0, 0.541);">
+              <img src="{% static 'img_lugares_wiki/campamentodefilmacion_1.png' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Campamento del equipo de filmación</h5>
+                <p class="card-text">Lugar con muchas carpas, cadáveres, cámaras. <a href="#" class="link-warning">Flora</a>: Hongo Amanita, árboles, arbustos. <a href="#" class="link-warning">Fauna</a>: ciervos, conejo, ardilla. Objetos: flechas, bengalas, olla, cinta, dinero, maletas, cámaras, accesorios de campamento, libro de historia.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100" style="background-color: rgba(0, 0, 0, 0.541);">
+              <img src="{% static 'img_lugares_wiki/tripulacioncongelada_1.jpg' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Campamento de tripulación congelado</h5>
+                <p class="card-text">Ubicado al norte en las montañas. Puedes encontrar: medicamentos, snack, soda, monedas, maletas, bengala. Sin flora ni fauna.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <div class="col">
+            <div class="card h-100" style="background-color: rgba(0, 0, 0, 0.541);">
+              <img src="{% static 'img_lugares_wiki/puentetierra_1.png' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Puente de tierra</h5>
+                <p class="card-text">Es un trozo de tierra que separa el río del mar. Tiene una elevación pronunciada que no se puede escalar. Uno de los lugares más peligrosos para construir. <a href="#" class="link-warning">Fauna</a>: tortuga, cocodrilo.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100" style="background-color: rgba(0, 0, 0, 0.541);">
+              <img src="{% static 'img_lugares_wiki/campamentodeplaya_1.png' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Campamento de playa</h5>
+                <p class="card-text">Tienda común para guardar y conseguir una olla vieja. Puedes encontrar: olla, bebidas, laptop, cinta, revistas decorativas. <a href="#" class="link-warning">Flora</a>: arándano, snowberry, árboles, arbustos. <a href="#" class="link-warning">Fauna</a>: gaviota, tiburones muertos. Objetos: fogata muerta, carpa, boya, envoltorios de comida.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100" style="background-color: rgba(0, 0, 0, 0.541);">
+              <img src="{% static 'img_lugares_wiki/Tierrasfertiles_1.png' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Tierras fértiles</h5>
+                <p class="card-text">Zona amplia con alta densidad de flora y fauna. <a href="#" class="link-warning">Flora</a>: equinácea, aloe vera, caléndula, berries, twinberry. <a href="#" class="link-warning">Fauna</a>: venado, conejo, lagarto, ardilla, pez, mapache. Ideal para recolectar y construir.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+      </div>
+
+      <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <div class="col">
+            <div class="card h-100" style="background-color: rgba(0, 0, 0, 0.541);">
+              <img src="{% static 'img_lugares_wiki/lugarparaacampar_1.jpg' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Lugar para acampar</h5>
+                <p class="card-text">Ubicado en el sur del bosque, no tiene muchos objetos pero cuenta con buena flora y fauna. Puedes encontrar: monedas, olla, <a href="#" class="link-warning">Flora</a>: twinberry, hierbas, arbustos, árboles. <a href="#" class="link-warning">Fauna</a>: pez, lagarto, conejo.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100" style="background-color: rgba(0, 0, 0, 0.541);">
+              <img src="{% static 'img_lugares_wiki/yate_1.jpg' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Yate</h5>
+                <p class="card-text">Embarcación abandonada. Patrullada frecuentemente por caníbales. Puedes encontrar: paños, refrigerios, aire, cuerdas, reproductor de casete, dibujos, llave del artefacto. Lugar importante en la historia.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+            <!--Ubicaciones Variadas-->
+            <br>
+            <br>
+            <br>
+            <br>
+            <center>
+              <h1 id=titulo1>Ubicaciones Variadas</h1>
+            </center>
+            <br>
+            <br>
+      
+            <div class="container">
+              <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                  <div class="card h-100" style="background-color: rgba(0, 0, 0, 0.541);">
+                    <img src="{% static 'img_lugares_wiki/islastf.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Islas</h5>
+                      <p class="card-text">Áreas del juego ubicadas en el mar, no conectadas a tierra firme. Son los lugares más seguros para construir, ya que los enemigos no pueden nadar ni cruzar el agua. No hay flora ni fauna.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card h-100" style="background-color: rgba(0, 0, 0, 0.541);">
+                    <img src="{% static 'img_lugares_wiki/riotf.png' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Río</h5>
+                      <p class="card-text">Principal cuerpo de agua de la península. Los peces abundan. Tiene múltiples ramas y zonas de paso poco profundas. Es común ver cocodrilos, tortugas, lagartos y conejos en las orillas. También hay rutas de patrulla caníbal cerca.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card h-100" style="background-color: rgba(0, 0, 0, 0.541);">
+                    <img src="{% static 'img_lugares_wiki/areademontaña_1.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Área de montaña</h5>
+                      <p class="card-text">Zona norte de la península cubierta de nieve. Accesible mediante ascensor del laboratorio Sahara. <a href="#" class="link-warning">Fauna</a>: ciervos, ardillas, pájaros, conejos de las nieves, jabalíes. <a href="#" class="link-warning">Flora</a>: no hay bayas ni plantas medicinales, pero sí hongos.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="container">
+              <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                  <div class="card h-100" style="background-color: rgba(0, 0, 0, 0.541);">
+                    <img src="{% static 'img_lugares_wiki/puestodevigilancia_1.png' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Puesto de vigilancia</h5>
+                      <p class="card-text">Estructuras construidas por caníbales, aunque no se les ve usarlas. Son altas y están cerca del agua. Antes del lanzamiento final del juego contenían muchos ítems. Actualmente solo se encuentra una ballesta.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card h-100" style="background-color: rgba(0, 0, 0, 0.541);">
+                    <img src="{% static 'img_lugares_wiki/arbolessagrados_1.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Árboles sagrados</h5>
+                      <p class="card-text">Grandes árboles ubicados en el sur de la península. No se pueden talar ni destruir. Los caníbales pueden alcanzarte en sus cercanías, así que no es un lugar completamente seguro.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card h-100" style="background-color: rgba(0, 0, 0, 0.541);">
+                    <img src="{% static 'img_lugares_wiki/campamentoabandonado_1.png' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Campamento abandonado</h5>
+                      <p class="card-text">Hay varios repartidos por la península. Contienen artículos como: pastillas, bebidas alcohólicas, dinero, monedas, bengalas, flechas, ollas, maletas y elementos de la historia. En algunos se puede guardar y dormir.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="container">
+              <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                  <div class="card h-100" style="background-color: rgba(0, 0, 0, 0.541);">
+                    <img src="{% static 'img_lugares_wiki/playastf.png' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Playas</h5>
+                      <p class="card-text">Zonas de arena que rodean la península. Fuente común de tortugas, gaviotas y peces. Pueden contener campamentos abandonados. Algunas tienen presencia de caníbales y puestos de vigilancia, volviéndolas peligrosas para construir.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card h-100" style="background-color: rgba(0, 0, 0, 0.541);">
+                    <img src="{% static 'img_lugares_wiki/estanquedepesca_1.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Estanque de pesca</h5>
+                      <p class="card-text">Pequeños cuerpos de agua distribuidos por la península. A menudo cerca de aldeas o puestos de vigilancia. Contienen lanzas, peces y equipaje disperso del accidente aéreo. Ideales para recolectar comida y recursos.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+      
+          </section>
+        </section>
+      
+        <!-- Footer -->
+        <footer id="piedepag">
+          <p>Chile, Santiago de Chile | Fono: 227369936 | Email: tfwiki@gmail.com</p>
+          <p>Copyright 2022 Wiki <span style="color: #ffc400;">THE FOREST WIKI</span></p>
+        </footer>
+      
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+          integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+          crossorigin="anonymous">
+        </script>
+      </body>
+      </html>
+      
