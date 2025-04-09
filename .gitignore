@@ -1,0 +1,12 @@
+# Entorno virtual
+venv/
+
+# Archivos temporales de Python
+__pycache__/
+*.py[cod]
+
+# Archivos del sistema
+.DS_Store
+
+# Base de datos local (opcional, si no quieres compartirla)
+db.sqlite3
