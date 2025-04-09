@@ -65,7 +65,7 @@
           <div class="px-lg-5 pt-lg-4 pb-lg-3 p-4 mb-auto w-100"></div>
           <div class="align-self-center w-100 px-lg-5 py-lg-4 p-4">
             <h1 class="font-weight-bold mb-4" id="subir">Ingrese sus Datos</h1>
-            <form method="post" action="#" class="mb-5">
+            <form method="post" action="{% url 'registrarse' %}" class="mb-5">
               {% csrf_token %}
               <div class="mb-4">
                 <label for="inputEmail" class="form-label font-weight-bold">Email</label>
