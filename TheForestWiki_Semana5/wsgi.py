@@ -1,5 +1,5 @@
 """
-WSGI config for semana_4_proyecto_forest project.
+WSGI config for TheForestWiki_Semana5 project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'semana_4_proyecto_forest.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'TheForestWiki_Semana5.settings')
 
 application = get_wsgi_application()

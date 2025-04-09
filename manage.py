@@ -6,7 +6,7 @@ import sys
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'semana_4_proyecto_forest.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'TheForestWiki_Semana5.settings')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
