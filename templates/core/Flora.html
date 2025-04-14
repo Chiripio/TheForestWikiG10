@@ -24,35 +24,39 @@
       aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    
+  
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'menuprincipal' %}">Inicio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'foro' %}">Foro</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link"
-            href="https://www.google.com/maps/place/R%C3%ADo+Imperial+460,+Valle+Grande,+Lampa">Dirección</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'registrarse' %}">Registrarse</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'iniciar_sesion' %}">Iniciar sesión</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'micuenta' %}">Mi Cuenta</a>
-        </li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'menuprincipal' %}">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'foro' %}">Foro</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'historia' %}">Historia</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'logros' %}">Logros</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'direccion' %}">Dirección</a></li>
+  
+        {% if request.session.usuario_id %}
+          <li class="nav-item">
+            <a class="nav-link text-warning" href="{% url 'micuenta' %}">Mi Cuenta ({{ request.session.usuario_nombre }})</a>
+          </li>
+          {% if request.session.usuario_rol == 'Administrador' %}
+            <li class="nav-item">
+              <a class="nav-link text-info" href="{% url 'admin_visual' %}">Admin</a>
+            </li>
+          {% endif %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'cerrar_sesion' %}">Cerrar sesión</a>
+          </li>
+        {% else %}
+          <li class="nav-item"><a class="nav-link" href="{% url 'registrarse' %}">Registrarse</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'iniciar_sesion' %}">Iniciar sesión</a></li>
+        {% endif %}
       </ul>
-      <form class="d-flex" id="separarsearch">
+      <form class="d-flex" id="separar-derecha">
         <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Buscar</button>
       </form>
     </div>
   </nav>
+  
   <body id="fondo1">
     <div class="container">
       <section class="color2 letra">

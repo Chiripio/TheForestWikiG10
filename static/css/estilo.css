@@ -23,52 +23,30 @@ header {
 	font-family: 'Bebas Neue', cursive;
 	color: var(--rojo);
 	font-size: 22px;
-	
 }
-#fuente{
+
+#fuente {
 	color: var(--rojo);
 	font-family: 'Bebas Neue', cursive;
 	font-size: 30px;
 	padding-left: 20px;
 }
-#piedepag{
+
+#piedepag {
 	font-family: 'Bebas Neue', cursive;
 	color: var(--rojo);
 	font-size: 20px;
 }
-nav{
+
+nav {
 	font-family: 'Bebas Neue', cursive;
 	font-size: 22px;
 	color: var(--rojo);
 }
-#separarsearch{
+
+#separarsearch {
 	padding-right: 20px;
 }
-/*
-header .contenedor {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}*/
-/*
-header .logotipo {
-	font-family: 'Bebas Neue', cursive;
-	font-weight: normal;
-	color: var(--rojo);
-	font-size: 40px;
-}*/
-/*
-header nav a {
-	color: #AAA;
-	text-decoration: none;
-	margin-right: 20px;
-}
-
-header nav a:hover,
-header nav a.activo {
-	color: #FFF;
-}*/
-
 
 .wiki {
 	font-size: 16px;
@@ -102,7 +80,7 @@ header nav a.activo {
 }
 
 .wiki .boton {
-	background: rgba(0,0,0, 0.5);
+	background: rgba(0, 0, 0, 0.5);
 	border: none;
 	border-radius: 0.31em;
 	padding: 0.93em 1.87em;
@@ -122,7 +100,7 @@ header nav a.activo {
 	margin-right: 1.25em;
 }
 
-/* ---- ----- ----- Contenedor Titulo y Controles ----- ----- ----- */
+/* --- Título y controles --- */
 .contenedor-titulo-controles {
 	display: flex;
 	justify-content: space-between;
@@ -148,8 +126,7 @@ header nav a.activo {
 	background: red;
 }
 
-
-/* ---- ----- ----- Contenedor Principal y Flechas ----- ----- ----- */
+/* --- Contenedor principal y flechas --- */
 .itemtf-recomendadas {
 	margin-bottom: 70px;
 }
@@ -164,7 +141,7 @@ header nav a.activo {
 .itemtf-recomendadas .contenedor-principal .flecha-derecha {
 	position: absolute;
 	border: none;
-	background: rgba(0,0,0,0.3);
+	background: rgba(0, 0, 0, 0.3);
 	font-size: 40px;
 	height: 50%;
 	top: calc(50% - 25%);
@@ -178,7 +155,7 @@ header nav a.activo {
 
 .itemtf-recomendadas .contenedor-principal .flecha-izquierda:hover,
 .itemtf-recomendadas .contenedor-principal .flecha-derecha:hover {
-	background: rgba(0,0,0, .9);
+	background: rgba(0, 0, 0, .9);
 }
 
 .itemtf-recomendadas .contenedor-principal .flecha-izquierda {
@@ -189,36 +166,80 @@ header nav a.activo {
 	right: 0;
 }
 
-/* ---- ----- ----- Carousel ----- ----- ----- */
+/* --- Carousel Glider --- */
 .itemtf-recomendadas .contenedor-carousel {
 	width: 100%;
-	padding: 20px 0;
+	padding: 10px 0;
 	overflow: hidden;
-	scroll-behavior: smooth;
+	position: relative;
 }
 
 .itemtf-recomendadas .contenedor-carousel .carousel {
 	display: flex;
 	flex-wrap: nowrap;
+	transition: transform 0.3s ease;
 }
 
 .itemtf-recomendadas .contenedor-carousel .carousel .pelicula {
-	min-width: 20%;
-	transition: .3s ease all;
-	box-shadow: 5px 5px 10px rgba(0,0,0, .3);
+	flex: 0 0 auto;
+	width: 140px;
+	max-width: 140px;
+	margin: 0 8px;
+	box-shadow: 3px 3px 8px rgba(0, 0, 0, .3);
+	transition: transform 0.3s ease;
+	text-align: center;
 }
 
-.itemtf-recomendadas .contenedor-carousel .carousel .pelicula.hover {
-	transform: scale(1.2);
-	transform-origin: center;
-}
-
-.itemtf-recomendadas .contenedor-carousel .carousel .pelicula img {
+/* Imagen de tarjeta */
+.itemtf-recomendadas .carousel .pelicula img {
 	width: 100%;
-	vertical-align: top;
+	max-height: 100px;
+	object-fit: contain;
+	border-radius: 5px;
+	pointer-events: none;
 }
 
-/* ---- ----- ----- Media Queries ----- ----- ----- */
+.itemtf-recomendadas .contenedor-carousel .carousel .pelicula:hover {
+	transform: scale(1.05);
+}
+
+/* Texto debajo de cada imagen */
+.itemtf-recomendadas .carousel .pelicula p {
+	color: var(--rojo);
+	font-size: 14px;
+	margin-top: 6px;
+	font-weight: bold;
+}
+
+/* Estilo del enlace */
+.pelicula a.link-tarjeta {
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	color: var(--rojo);
+	cursor: pointer;
+}
+
+.pelicula a.link-tarjeta:hover p {
+	color: white;
+}
+
+/* Indicadores activos en rojo */
+.contenedor-titulo-controles .indicadores button {
+	background: #fff;
+	height: 4px;
+	width: 12px;
+	cursor: pointer;
+	border: none;
+	margin: 0 4px;
+}
+
+.contenedor-titulo-controles .indicadores button.activo,
+.contenedor-titulo-controles .indicadores button:hover {
+	background: var(--rojo);
+}
+
+/* Media Queries */
 @media screen and (max-width: 800px) {
 	header .logotipo {
 		margin-bottom: 10px;
@@ -253,19 +274,17 @@ header nav a.activo {
 	.itemtf-recomendadas .flecha-derecha {
 		display: none;
 	}
-
-
 }
 
-/* ---- ----- ----- FOOTER ----- ----- ----- */
+/* Footer */
 footer {
-    background-color: rgba(36, 36, 36, 0.664);
-    color: white;
-    padding-top: 1.2rem;
-    padding-bottom: 1.2rem;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+	background-color: rgba(36, 36, 36, 0.664);
+	color: white;
+	padding-top: 1.2rem;
+	padding-bottom: 1.2rem;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
 }
 /*
 .footer-contenido{
@@ -325,3 +344,4 @@ footer {
 	opacity: .4;
 	font-weight: 200;
 }
+

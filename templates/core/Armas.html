@@ -17,39 +17,45 @@
 
 <body id="fondo">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="{% url 'inicio' %}" id="fuente">The Forest Wiki</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <a class="navbar-brand" href="{% url 'menuprincipal' %}" id="fuente">The Forest Wiki</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
         </button>
+      
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="{% url 'menuprincipal' %}">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'foro' %}">Foro</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'historia' %}">Historia</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'logros' %}">Logros</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'direccion' %}">Dirección</a></li>
+      
+            {% if request.session.usuario_id %}
+              <li class="nav-item">
+                <a class="nav-link text-warning" href="{% url 'micuenta' %}">Mi Cuenta ({{ request.session.usuario_nombre }})</a>
+              </li>
+              {% if request.session.usuario_rol == 'Administrador' %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'inicio' %}">Inicio</a>
+                  <a class="nav-link text-info" href="{% url 'admin_visual' %}">Admin</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'foro' %}">Foro</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link"
-                        href="https://www.google.com/maps/place/R%C3%ADo+Imperial+460,+Valle+Grande,+Lampa,+Regi%C3%B3n+Metropolitana/@-33.3295809,-70.751195,17z/data=!3m1!4b1!4m5!3m4!1s0x9662bf62531dc747:0xc0b4aee73c3b9373!8m2!3d-33.3295854!4d-70.7490063?hl=es-CL">Dirección</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'registrarse' %}">Registrarse</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'login' %}">Iniciar sesión</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'micuenta' %}">Mi Cuenta</a>
-                </li>
-            </ul>
-            <form class="d-flex" id="separar-derecha">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Buscar</button>
-            </form>
+              {% endif %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'cerrar_sesion' %}">Cerrar sesión</a>
+              </li>
+            {% else %}
+              <li class="nav-item"><a class="nav-link" href="{% url 'registrarse' %}">Registrarse</a></li>
+              <li class="nav-item"><a class="nav-link" href="{% url 'iniciar_sesion' %}">Iniciar sesión</a></li>
+            {% endif %}
+          </ul>
+          <form class="d-flex" id="separar-derecha">
+            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Buscar</button>
+          </form>
         </div>
-    </nav>
+      </nav>
+
     <section class="colorl">
         <div class="letra">
             <div class="container">

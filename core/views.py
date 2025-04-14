@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.hashers import check_password, make_password
 from core.models import Usuario, RolUsuario
+from django.views.decorators.csrf import csrf_exempt
 
 # -------------------------
 # VISTAS DE NAVEGACIÓN
@@ -37,20 +38,27 @@ def flora(request):
 def historia(request):
     return render(request, 'core/historia.html')
 
+def logros(request):
+    return render(request, 'core/Logros.html')
+
+def direccion(request):
+    return render(request, 'core/direccion.html')
+
+
 # -------------------------
 # VISTAS DE USUARIO
 # -------------------------
 
-# Vista: Perfil del usuario
 def micuenta(request):
     if not request.session.get('usuario_id'):
         messages.warning(request, '⚠ Debes iniciar sesión para acceder a tu cuenta.')
         return redirect('iniciar_sesion')
     return render(request, 'core/micuentatf.html')
 
-# Vista: Registro de usuario
 def registrarse(request):
     if request.method == 'POST':
+        nombre = request.POST.get('nombre')
+        apellido = request.POST.get('apellido')
         email = request.POST.get('email')
         password = request.POST.get('password')
         confirm = request.POST.get('confirm_password')
@@ -70,7 +78,7 @@ def registrarse(request):
             return render(request, 'core/registrase_wiki.html')
 
         nuevo_usuario = Usuario(
-            nombre=email,
+            nombre=f"{nombre} {apellido}",
             email=email,
             rol=rol_default
         )
@@ -82,11 +90,9 @@ def registrarse(request):
 
     return render(request, 'core/registrase_wiki.html')
 
-# Vista: Recuperar contraseña
 def recuperar_contra(request):
     return render(request, 'core/recuperarcontra.html')
 
-# Vista: Iniciar sesión
 def iniciar_sesion(request):
     if request.method == 'POST':
         email = request.POST.get('email')
@@ -103,8 +109,8 @@ def iniciar_sesion(request):
             request.session['usuario_nombre'] = usuario.nombre
             request.session['usuario_rol'] = usuario.rol.nombre
 
-            if usuario.rol.nombre.lower() == 'admin':
-                return redirect('micuenta')
+            if usuario.rol.nombre.lower() == 'administrador':
+                return redirect('admin_visual')
             else:
                 return redirect('menuprincipal')
         else:
@@ -113,13 +119,11 @@ def iniciar_sesion(request):
 
     return render(request, 'core/inicio_sesion_wiki.html')
 
-# Vista: Cerrar sesión
 def cerrar_sesion(request):
     request.session.flush()
     messages.success(request, "✅ Has cerrado sesión correctamente.")
     return redirect('iniciar_sesion')
 
-# Vista: Editar perfil
 def editar_perfil(request):
     usuario_id = request.session.get('usuario_id')
     if not usuario_id:
@@ -137,22 +141,55 @@ def editar_perfil(request):
         nuevo_email = request.POST.get('email')
         nueva_password = request.POST.get('nueva_password')
 
-        # Validar que el nuevo email no esté en uso por otro usuario
         if Usuario.objects.exclude(id=usuario.id).filter(email=nuevo_email).exists():
             messages.error(request, "❌ Ya existe un usuario con ese correo.")
             return render(request, 'core/editar_perfil.html', {'usuario': usuario})
 
-        # Guardar cambios
         usuario.nombre = nuevo_nombre
         usuario.email = nuevo_email
         if nueva_password:
             usuario.password = make_password(nueva_password)
         usuario.save()
 
-        # Actualizar sesión
         request.session['usuario_nombre'] = nuevo_nombre
 
         messages.success(request, "✅ Perfil actualizado correctamente.")
         return redirect('micuenta')
 
     return render(request, 'core/editar_perfil.html', {'usuario': usuario})
+
+
+# -------------------------
+# VISTA DE ADMINISTRADOR
+# -------------------------
+
+def admin_visual(request):
+    if not request.session.get('usuario_id') or request.session.get('usuario_rol') != 'Administrador':
+        messages.warning(request, '⚠️ Acceso solo para administradores.')
+        return redirect('menuprincipal')
+    return render(request, 'core/admin_visual.html')
+
+
+# -------------------------
+# ELIMINAR USUARIO
+# -------------------------
+
+@csrf_exempt
+def eliminar_usuario(request):
+    if request.method == 'POST':
+        usuario_id = request.session.get('usuario_id')
+        if not usuario_id:
+            messages.warning(request, '⚠️ No tienes una sesión activa.')
+            return redirect('iniciar_sesion')
+
+        try:
+            usuario = Usuario.objects.get(id=usuario_id)
+            usuario.delete()
+            request.session.flush()
+            messages.success(request, '✅ Tu cuenta ha sido eliminada exitosamente.')
+            return redirect('menuprincipal')
+        except Usuario.DoesNotExist:
+            messages.error(request, '❌ El usuario no existe.')
+            return redirect('menuprincipal')
+    else:
+        return redirect('editar_perfil')

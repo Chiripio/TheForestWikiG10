@@ -19,6 +19,6 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('core.urls')),  # Ruta principal conectada a app core
+    path('admin/', admin.site.urls),  # Admin de Django (opcional)
+    path('', include('core.urls')),   # Todas las rutas del proyecto vienen de core
 ]
