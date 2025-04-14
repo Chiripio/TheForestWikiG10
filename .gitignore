@@ -1,5 +1,7 @@
 # Entorno virtual
 venv/
+semana5/
+semana5test/
 
 # Archivos temporales de Python
 __pycache__/
@@ -10,3 +12,4 @@ __pycache__/
 
 # Base de datos local (opcional, si no quieres compartirla)
 db.sqlite3
+
