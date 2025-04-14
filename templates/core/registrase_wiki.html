@@ -25,18 +25,18 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item"><a class="nav-link" href="{% url 'menuprincipal' %}">Inicio</a></li>
           <li class="nav-item"><a class="nav-link" href="{% url 'foro' %}">Foro</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://www.google.com/maps/place/R%C3%ADo+Imperial+460">Dirección</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://maps.app.goo.gl/qhjiW1ajvwk3xDdt9">Dirección</a></li>
           <li class="nav-item"><a class="nav-link active" href="{% url 'registrarse' %}">Registrarse</a></li>
           <li class="nav-item"><a class="nav-link" href="{% url 'iniciar_sesion' %}">Iniciar sesión</a></li>
           <li class="nav-item"><a class="nav-link" href="{% url 'micuenta' %}">Mi Cuenta</a></li>
         </ul>
         <form class="d-flex" id="separarsearch">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="background: #ffffff;">
+          <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" style="background: #ffffff;">
           <button class="btn btn-outline-success" type="submit">Buscar</button>
         </form>
       </div>
     </nav>
-
+ <!-- CARRUCEL -->
     <section>
       <div class="row g-0">
         <div class="col-lg-7 d-none d-lg-block">
@@ -67,6 +67,16 @@
             <h1 class="font-weight-bold mb-4" id="subir">Ingrese sus Datos</h1>
             <form method="post" action="{% url 'registrarse' %}" class="mb-5">
               {% csrf_token %}
+              <div class="mb-4">
+                <label for="first_name" class="form-label font-weight-bold">Nombre</label>
+                <input type="text" name="first_name" class="form-control bg-dark-x border-0"
+                  id="input_first_name" placeholder="Nombre completo" required style="background-color: #ffffff;">
+              </div>
+              <div class="mb-4">
+                <label for="last_name" class="form-label font-weight-bold">Apellido</label>
+                <input type="text" name="last_name" class="form-control bg-dark-x border-0"
+                  id="input_last_name" placeholder="Apellido" required style="background-color: #ffffff;">
+              </div>
               <div class="mb-4">
                 <label for="inputEmail" class="form-label font-weight-bold">Email</label>
                 <input type="email" name="email" class="form-control bg-dark-x border-0"

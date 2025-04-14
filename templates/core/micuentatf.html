@@ -32,7 +32,7 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item"><a class="nav-link" href="{% url 'menuprincipal' %}">Inicio</a></li>
         <li class="nav-item"><a class="nav-link" href="{% url 'foro' %}">Foro</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://www.google.com/maps/place/R%C3%ADo+Imperial+460,+Valle+Grande,+Lampa,+Regi%C3%B3n+Metropolitana/">Dirección</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://maps.app.goo.gl/qhjiW1ajvwk3xDdt9">Dirección</a></li>
 
         {% if request.session.usuario_id %}
           <li class="nav-item"><a class="nav-link active" href="{% url 'micuenta' %}">Mi Cuenta ({{ request.session.usuario_nombre }})</a></li>
@@ -64,7 +64,7 @@
 
     <div class="perfil-usuario-body">
       <div class="perfil-usuario-bio">
-        <h3 class="titulo">{{ request.session.usuario_nombre }}</h3>
+        <h3 class="titulo">{{ user.get_full_name }}</h3>
       </div>
       <div class="perfil-usuario-footer">
         <ul class="lista-datos">
@@ -75,21 +75,30 @@
               <path fill-rule="evenodd"
                     d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
             </svg>
-            Nombre de Usuario: {{ request.session.usuario_nombre }}
+            Nombre de Usuario: {{ user.first_name}}
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                 class="bi bi-person-circle" viewBox="0 0 16 16">
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+              <path fill-rule="evenodd"
+                    d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+            </svg>
+            Apellido: {{ user.last_name}}
           </li>
           <li>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                  class="bi bi-envelope-fill" viewBox="0 0 16 16">
               <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
             </svg>
-            Email: {{ request.session.usuario_nombre }}
+            Email: {{ user.email }}
           </li>
           <li>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                  class="bi bi-key-fill" viewBox="0 0 16 16">
               <path d="M3.5 11.5a3.5 3.5 0 1 1 3.163-5H14L15.5 8 14 9.5l-1-1-1 1-1-1-1 1-1-1-1 1H6.663a3.5 3.5 0 0 1-3.163 2zM2.5 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
             </svg>
-            Rol de usuario: {{ request.session.usuario_rol }}
+            Rol de usuario: 
           </li>
         </ul>
 

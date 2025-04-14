@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.hashers import check_password, make_password
 from core.models import Usuario, RolUsuario
-
+from django.contrib.auth.models import User,Group
 # -------------------------
 # VISTAS DE NAVEGACIÓN
 # -------------------------
@@ -46,11 +46,14 @@ def micuenta(request):
     if not request.session.get('usuario_id'):
         messages.warning(request, '⚠ Debes iniciar sesión para acceder a tu cuenta.')
         return redirect('iniciar_sesion')
-    return render(request, 'core/micuentatf.html')
+    user = User.objects.get(id=request.session.get('usuario_id'))
+    return render(request, 'core/micuentatf.html',{'user':user})
 
 # Vista: Registro de usuario
 def registrarse(request):
     if request.method == 'POST':
+        first_name = request.POST.get('first_name')
+        lastname = request.POST.get('last_name')
         email = request.POST.get('email')
         password = request.POST.get('password')
         confirm = request.POST.get('confirm_password')
@@ -59,23 +62,26 @@ def registrarse(request):
             messages.error(request, "❌ Las contraseñas no coinciden.")
             return render(request, 'core/registrase_wiki.html')
 
-        if Usuario.objects.filter(email=email).exists():
+        if User.objects.filter(email=email).exists():
             messages.error(request, "❌ El correo ya está registrado.")
             return render(request, 'core/registrase_wiki.html')
 
         try:
-            rol_default = RolUsuario.objects.get(nombre="Cliente")
-        except RolUsuario.DoesNotExist:
+            rol_default = Group.objects.get(name="Cliente")
+        except Group.DoesNotExist:
             messages.error(request, "❌ Error: El rol 'Cliente' no existe. Crea uno desde el administrador.")
             return render(request, 'core/registrase_wiki.html')
-
-        nuevo_usuario = Usuario(
-            nombre=email,
+        # Creación del Usuario en BD.
+        nuevo_usuario = User(
+            username=email,
             email=email,
-            rol=rol_default
+            first_name=first_name,
+            last_name=lastname,
+            
         )
-        nuevo_usuario.password = make_password(password)
+        nuevo_usuario.set_password(password)
         nuevo_usuario.save()
+        nuevo_usuario.groups.add(rol_default)
 
         messages.success(request, "✅ ¡Cuenta creada exitosamente! Ahora puedes iniciar sesión.")
         return redirect('iniciar_sesion')
@@ -93,24 +99,24 @@ def iniciar_sesion(request):
         password = request.POST.get('password')
 
         try:
-            usuario = Usuario.objects.get(email=email)
-        except Usuario.DoesNotExist:
+            usuario = User.objects.get(email=email)
+        except User.DoesNotExist:
             messages.error(request, '❌ No existe un usuario con ese correo.')
             return redirect('iniciar_sesion')
-
-        if check_password(password, usuario.password):
+        if usuario.check_password(password):
             request.session['usuario_id'] = usuario.id
-            request.session['usuario_nombre'] = usuario.nombre
-            request.session['usuario_rol'] = usuario.rol.nombre
+            request.session['usuario_nombre'] = usuario.get_full_name() 
+            request.session['usuario_rol'] = ""
+            
 
-            if usuario.rol.nombre.lower() == 'admin':
+            if usuario.username.lower() == "admin":
                 return redirect('micuenta')
             else:
                 return redirect('menuprincipal')
         else:
             messages.error(request, '❌ Contraseña incorrecta.')
             return redirect('iniciar_sesion')
-
+    
     return render(request, 'core/inicio_sesion_wiki.html')
 
 # Vista: Cerrar sesión
