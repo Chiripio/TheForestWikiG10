@@ -28,6 +28,8 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item"><a class="nav-link" href="{% url 'menuprincipal' %}">Inicio</a></li>
         <li class="nav-item"><a class="nav-link" href="{% url 'foro' %}">Foro</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'historia' %}">Historia</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'logros' %}">Logros</a></li>
         <li class="nav-item"><a class="nav-link" href="{% url 'direccion' %}">Dirección</a></li>
 
         {% if request.session.usuario_id %}
